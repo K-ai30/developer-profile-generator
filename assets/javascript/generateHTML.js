@@ -170,5 +170,71 @@ const colors = {
               zoom: .75; 
             } 
            }
-        </style>`
+        </style>
+        </head>
+      
+        <body>
+        <div class="wrapper">
+        <div class="photo-header">
+            <img src="${data.avatar_url}" alt="avatar"/>
+            <h1>Hi!</h1>
+            <h2>My name is: ${data.name}!</h2>
+            <h4>Currently @ ${data.company}!</h4>
+            <nav class="links-nav">
+                <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/${data.location}"><i class="fas fa-location-arrow"></i>${data.location}</a>
+                <a class="nav-link" target="_blank" rel="noopener noreferrer" href="$data.html_url}"><i class="fab fa-github-alt">GitHub</i></a>
+                <a class="nav-link" target="_blank" rel="${data.blog}"><i class="fas fa-rss"></i>Blog</a>
+            </nav>
+        </div>
+
+    <main> 
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h4>${data.bio}</h4>
+                </div>
+            </div>
+
+            <!-- Repositories & Followers -->
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <h3>Public Repositories</h3>
+                        <h4>${data.public_repos}</h4>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <h3>Followers</h3>
+                            <h4>${data.followers}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stars & Following -->
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <h3>GitHub Stars</h3>
+                        <h4>${data.stars}</h4>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <h3>Following</h3>
+                            <h4>${data.following}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>        
+    </div>
+
+    <script src="assets/javascript/index.js"></script>
+    <script src="assets/javascript/generateHTML.js"></script>
+<body>
+</html>`
           }
+
+        module.exports = generateHTML;
