@@ -68,7 +68,7 @@ function init() {
             });
             
             //we want to also use answers.username to make an axios call to a different "users/{USERNAME}/repos"
-            const ghReposURL = `https://api.github.com/users/` + data.username + `/repos`; // build url the same way we did above except for the repose endpoint^^^
+            const ghReposURL = `https://api.github.com/users/` + data.username + `/repos`; // build url the same way we did above except for the repos endpoint^^^
             
             axios.get(ghReposURL).then(response => {
                 // Take properties from the repos to add to our data
@@ -87,6 +87,7 @@ function init() {
                 }
             }.catch(function(error) {
                 console.log('Error: ', error);
+                
             })
-    })
-});
+        )})
+})};
