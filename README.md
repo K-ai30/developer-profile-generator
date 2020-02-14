@@ -30,13 +30,13 @@ Assuming the user has a profile, the data is collected from the user's GitHub pr
 * Axios
 * Inquirer
  
- ### Demo
+### Demo
 
- ### Notes
+### Notes
 
 I started building this application to provide product managers and stakeholders with a command-line application that will allow for quick and easy generation of profiles in PDF format.
 
- ### Contributors
+### Contributors
 
 The original contributor to this project is the following full stack developer:
 
