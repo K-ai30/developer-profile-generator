@@ -33,7 +33,6 @@ Assuming the user has a profile, the data is collected from the user's GitHub pr
 ### Demo
 
 ![](images/DeveloperProfileGeneratorDemo.gif)
-<img src="images/DeveloperProfileGeneratorDemo.gif" width="400">
 
 ### Notes
 
