@@ -13,5 +13,13 @@
     "electron-html-to": "^2.6.0",
     "electron-prebuilt": "^1.4.13",
     "inquirer": "^7.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/K-ai30/developer-profile-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/K-ai30/developer-profile-generator/issues"
+  },
+  "homepage": "https://github.com/K-ai30/developer-profile-generator#readme"
 }
