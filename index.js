@@ -40,17 +40,21 @@ function init() {
         const ghURL = `https://api.github.com/users/${data.username}`;
 
         // Execute function
-        axios.get(ghURL).then(response => {
+        let githubUser = axios.get(ghURL);
+        let githubStars = axios.get(`https://api.github.com/users/` + data.username + `/starred`);
+        axios.all([githubUser, githubStars])
+        .then(axios.spread(function(user, stars){
             //take properties from the response and add them to our data object
-            data.avatar_url = response.data.avatar_url;
-            data.name = response.data.name;
-            data.company = response.data.company;
-            data.location = response.data.location;
-            data.bio = response.data.location;
-            data.blog = response.data.blog;
-            data.public_repos = response.data.public_repos;
-            data.followers = response.data.followers;
-            data.following = response.data.following;
+            data.avatar_url = user.data.avatar_url;
+            data.name = user.data.name == undefined ? "GitHub User" : user.data.name;
+            data.company = user.data.company == undefined ? "Unknown" : user.data.company;
+            data.location = user.data.location;
+            data.bio = user.data.bio;
+            data.blog = user.data.blog;
+            data.public_repos = user.data.public_repos;
+            data.followers = user.data.followers;
+            data.following = user.data.following;
+            data.stars = stars.data.length;
 
             const htmlResult = generateHTML(data);
 
@@ -63,31 +67,9 @@ function init() {
                     return console.error(err);
                 }
             
-            result.stream.pipe(fs.createWriteStream('developerProfile.pdf'));
-            conversion.kill(); // necessary if you use the electron-server strategy, see below for details
+                result.stream.pipe(fs.createWriteStream('developerProfile.pdf'));
+                conversion.kill(); // necessary if you use the electron-server strategy, see below for details
             });
-            
-            //we want to also use answers.username to make an axios call to a different "users/{USERNAME}/repos"
-            const ghReposURL = `https://api.github.com/users/` + data.username + `/repos`; // build url the same way we did above except for the repos endpoint^^^
-            
-            axios.get(ghReposURL).then(response => {
-                // Take properties from the repos to add to our data
-            });
-
-            const starURL = `https://api.github.com/users/` + data.username + `/starred`;
-            data.stars = starCount;
-
-            axios.get(starURL)
-            .then(function(starResponse) {
-                const starData = starResponse.data;
-                let starCount = 0;
-                for (var i = 0; i < starData.length; i++) {
-                    const stargazersCount = starData[i].stargazersCount;
-                    starCount += stargazersCount;
-                }
-            }.catch(function(error) {
-                console.log('Error: ', error);
-                
-            })
-        )})
-})};
+        }))
+    })
+}
