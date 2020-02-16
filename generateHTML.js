@@ -202,13 +202,13 @@ const colors = {
                         <h3>Public Repositories</h3>
                         <h4>${data.public_repos}</h4>
                     </div>
-                    <div class="col">
-                        <div class="card">
-                            <h3>Followers</h3>
-                            <h4>${data.followers}</h4>
-                        </div>
-                    </div>
                 </div>
+                <div class="col">
+                    <div class="card">
+                        <h3>Followers</h3>
+                        <h4>${data.followers}</h4>
+                    </div>
+                </div> 
             </div>
 
             <!-- Stars & Following -->
@@ -218,11 +218,11 @@ const colors = {
                         <h3>GitHub Stars</h3>
                         <h4>${data.stars}</h4>
                     </div>
-                    <div class="col">
-                        <div class="card">
-                            <h3>Following</h3>
-                            <h4>${data.following}</h4>
-                        </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <h3>Following</h3>
+                        <h4>${data.following}</h4>
                     </div>
                 </div>
             </div>
